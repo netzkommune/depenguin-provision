@@ -1,0 +1,5 @@
+dnspython
+Jinja2
+requests
+simplejson
+paramiko

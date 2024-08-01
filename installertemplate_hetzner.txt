@@ -1,0 +1,14 @@
+conf_hostname="{{ name }}"
+conf_interface="em0"
+conf_ipv4="{{ ip }}"
+conf_ipv6="{{ ip6 }}"
+conf_gateway="{{ gateway }}"
+conf_nameserveripv4one="8.8.8.8"
+conf_nameserveripv4two="9.9.9.9"
+conf_nameserveripv6one=""
+conf_nameserveripv6two=""
+conf_username="{{ user }}"
+conf_pubkeyurl="https://netzkommune.de/bootstrap/authorized_keys"
+conf_disks="ada0 ada1"   # or ada0 | or nvme0n1 | or nvme0n1 nvme1n1
+conf_disktype="mirror"   # or stripe for single disk
+run_installer="1"        # set to 1 to enable installer
