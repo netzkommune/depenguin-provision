@@ -5,6 +5,11 @@ We rely heavily on [depenguin.me](https://github.com/depenguin-me/depenguin-run)
 This script can also order servers from hetzner via the `-c` (regular servers) and `--market` (server market) flags.
 We can provision servers (`-p` and `--no-hetzner`) from a regular linux-based Live-CD, too. This is tested and works with servers from leaseweb, OVH and hetzner so far.
 
+# WARNING
+
+If you point this script to an existing linux-installation, IT WILL DESTROY THE DATA ON IT!
+Only run this script pointing to servers you want to WIPE! We do not do any checks if there is an existing operating system installed. Once you hit enter and are able to login to the target-IP, THE DATA THERE WILL BE WIPED! And the system re-installed with FreeBSD.
+
 ## Usage
 You can either rent the server through `provision.py` automatically (`-c` and `--market`), or provision an existing one which is bootet into a linux rescue (`-p`)
 
