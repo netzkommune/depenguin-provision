@@ -1,0 +1,9 @@
+[DEFAULT]
+ssh_user=admin
+post_provision=https://example.org/bootstrap.sh
+authorized_keys=https://example.org/authorized_keys
+run_url=https://depenguin.me/run.sh
+image_url=https://depenguin.me/files/mfsbsd-14.0-RELEASE-rc5-amd64.iso
+
+[hetzner]
+api_user=#ws+myuser
