@@ -1,4 +1,4 @@
-# WARNING
+# :warning: WARNING :warning:
 
 If you point this script to an existing linux-installation, IT WILL DESTROY THE DATA ON IT!
 Only run this script pointing to servers you want to WIPE! We do not do any checks if there is an existing operating system installed. Once you hit enter and are able to login to the target-IP, THE DATA THERE WILL BE WIPED! And the system re-installed with FreeBSD.
