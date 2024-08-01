@@ -11,6 +11,23 @@ You can either rent the server through `provision.py` automatically (`-c` and `-
 ### Example for a generic server bootet into a linux rescue
 ```
 $ ./provision.py --no-hetzner -p $your-IP --installerconfig myserver.txt
+2024-08-01 14:32:33,163 - INFO - Provisioning $ip4
+2024-08-01 14:32:33,163 - INFO - Waiting for $ip4 to respond to SSH on Port 22...
+2024-08-01 14:34:31,343 - INFO - Server became available
+2024-08-01 14:34:31,343 - INFO - Starting Depenguin...
+2024-08-01 14:35:21,175 - INFO - Waiting for $ip4 to respond to SSH on Port 1022...
+2024-08-01 14:35:21,207 - INFO - Server became available
+2024-08-01 14:35:21,207 - INFO - Depenguin is started
+2024-08-01 14:35:21,722 - INFO - Destroying zpool: zroot
+2024-08-01 14:35:25,524 - INFO - Uploading Installerconfig...
+2024-08-01 14:35:25,853 - INFO - Running Installer
+2024-08-01 14:36:09,665 - INFO - Waiting until install is finished and VM is shutdown...
+2024-08-01 14:37:09,670 - INFO - Rebooting Host...
+2024-08-01 14:37:19,743 - INFO - Waiting for $ip4 to respond to SSH on Port 22...
+2024-08-01 14:42:50,012 - INFO - Server became available
+2024-08-01 14:42:50,688 - INFO - Downloading post-provision script
+2024-08-01 14:42:50,835 - INFO - Executing post-provision.sh
+2024-08-01 14:43:01,071 - INFO - Connect to: admin@$ip4
 ```
 
 Where `myserver.txt` contains the installerconfig. See `installerconfig_hetzner.txt` for an example.
