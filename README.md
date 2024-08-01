@@ -6,7 +6,7 @@ This script can also order servers from hetzner via the `-c` (regular servers) a
 We can provision servers (`-p` and `--no-hetzner`) from a regular linux-based Live-CD, too. This is tested and works with servers from leaseweb, OVH and hetzner so far.
 
 ## Usage
-You can either buy the server through `provision.py` automatically (`-c` and `--market`), or provision an existing one which is bootet into a linux rescue (`-p`)
+You can either rent the server through `provision.py` automatically (`-c` and `--market`), or provision an existing one which is bootet into a linux rescue (`-p`)
 
 ### Example for a generic server bootet into a linux rescue
 ```
