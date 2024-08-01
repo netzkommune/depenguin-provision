@@ -3,7 +3,7 @@
 We rely heavily on [depenguin.me](https://github.com/depenguin-me/depenguin-run) to make this happen. This script is basically just a little helper which executes some things neccessary to provision a server from a linux-Live-CD to persistent FreeBSD.
 
 This script can also order servers from hetzner via the `-c` (regular servers) and `--market` (server market) flags.
-Also we can provision servers (`-p` and `--no-hetzner`) from a regular linux-based Live-CD. This is tested and works with servers from leaseweb, OVH and hetzner so far.
+We can provision servers (`-p` and `--no-hetzner`) from a regular linux-based Live-CD, too. This is tested and works with servers from leaseweb, OVH and hetzner so far.
 
 ## Usage
 You can either buy the server through `provision.py` automatically (`-c` and `--market`), or provision an existing one which is bootet into a linux rescue (`-p`)
