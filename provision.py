@@ -186,7 +186,7 @@ class Server(object):
                 'sudo gpart destroy -F {}'.format(d))
 
     def create_installerconfig(self):
-        env = Environment(loader=FileSystemLoader("./"))
+        env = Environment(loader=FileSystemLoader("{}".format(conf['installerconfig_path'])))
         tmpl = env.get_template("installertemplate_hetzner.txt")
         ip = auth_get(ws_url+get_ip_url+'/{}'.format(self.ip))
         data = {
@@ -196,7 +196,7 @@ class Server(object):
             'name': self.name,
             'user': conf['ssh_user']
         }
-        filename = "install_{}.txt".format(self.ip)
+        filename = "{}/install_{}.txt".format(conf['installerconfig_path'], self.ip)
         content = tmpl.render(data)
         with open(filename, mode='w', encoding='utf-8') as f:
             f.write(content)
@@ -224,7 +224,8 @@ class Server(object):
             installerconfig = self.create_installerconfig()
         else:
             if a['installerconfig']:
-                installerconfig = a['installerconfig']
+                installerconfig = "{}/{}".format(conf['installerconfig_path'],
+                                                 a['installerconfig'])
             else:
                 raise ValueError("--no-hetzner requires --installerconfig")
 
@@ -252,9 +253,14 @@ class Server(object):
         else:
             rescue.connect(self.ip, username="root", look_for_keys=True)
 
-        stdin, stdout, stderr = rescue.exec_command(
-            "wget {} && chmod +x run.sh && ./run.sh -m {} -d {}".format(
-                conf['run_url'], conf['image_url'], conf['authorized_keys']))
+        if 'image_url' in conf:
+            stdin, stdout, stderr = rescue.exec_command(
+                "wget {} && chmod +x run.sh && ./run.sh -m {} -d {}".format(
+                    conf['run_url'], conf['image_url'], conf['authorized_keys']))
+        else:
+            stdin, stdout, stderr = rescue.exec_command(
+                "wget {} && chmod +x run.sh && ./run.sh -d {}".format(
+                    conf['run_url'], conf['authorized_keys']))
 
         log.debug(stdout.read())
 
