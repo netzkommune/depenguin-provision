@@ -255,11 +255,11 @@ class Server(object):
 
         if 'image_url' in conf:
             stdin, stdout, stderr = rescue.exec_command(
-                "wget {} && chmod +x run.sh && ./run.sh -m {} -d {}".format(
+                "wget -O run.sh {} && chmod +x run.sh && ./run.sh -m {} -d {}".format(
                     conf['run_url'], conf['image_url'], conf['authorized_keys']))
         else:
             stdin, stdout, stderr = rescue.exec_command(
-                "wget {} && chmod +x run.sh && ./run.sh -d {}".format(
+                "wget -O run.sh {} && chmod +x run.sh && ./run.sh -d {}".format(
                     conf['run_url'], conf['authorized_keys']))
 
         log.debug(stdout.read())
