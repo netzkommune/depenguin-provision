@@ -241,7 +241,8 @@ class Server(object):
         log.info("Running Installer")
         stdin, stdout, stderr = depenguin.exec_command(
             'cd /root && sudo ./depenguin_bsdinstall.sh')
-        log.debug("bsdinstall: {}".format(stdout.read()))
+        log.debug("bsdinstall stdout: {}".format(stdout.read()))
+        log.debug("bsdinstall stderr: {}".format(stderr.read()))
 
     def run_depenguin(self, ssh_pw=None):
         log.info("Starting Depenguin...")
@@ -253,6 +254,7 @@ class Server(object):
         else:
             rescue.connect(self.ip, username="root", look_for_keys=True)
 
+        log.debug("Downloading {} to run.sh".format(conf['run_url']))
         if 'image_url' in conf:
             stdin, stdout, stderr = rescue.exec_command(
                 "wget -O run.sh {} && chmod +x run.sh && ./run.sh -m {} -d {}".format(
